@@ -1,11 +1,11 @@
 {
     "name": "base_custom_attribute",
-    "version": "12.0.0.0.1",
+    "version": "10.0.0.0.1",
     "category": "Generic Modules/Others",
     "license": "AGPL-3",
     "author": "Akretion",
     "website": "https://akretion.com",
-    "depends": ["base", "base_sparse_field"],
+    "depends": ["base"],
     "data": [
         "security/ir.model.access.csv",
         "security/attribute_security.xml",
