@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 # Copyright 2011 Akretion (http://www.akretion.com).
 # @author Benoit Guillot <benoit.guillot@akretion.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
@@ -67,6 +66,13 @@ class ProductTemplate(models.Model):
             page_att.append(main_group)
 
             result["arch"] = etree.tostring(eview, pretty_print=True)
+            attrs = self.env["attribute.attribute"].search(
+                [
+                    ("model_id.model", "=", "product.template"),
+                    ("attribute_set_ids", "!=", False),
+                ]
+            )
+            result["fields"].update(self.fields_get(attrs.mapped("name")))
         return result
 
 
