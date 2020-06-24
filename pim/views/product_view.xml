@@ -25,7 +25,7 @@
                     groups="uom.group_uom"
                 />
                 <field name="attribute_set_id" />
-                <field
+                <!-- <field
                     widget='label_selection'
                     name="completion_state"
                     options="{'classes': {'complete': 'success', 'not_complete':'danger'}}"
@@ -36,7 +36,7 @@
                     widget="percentage"
                     attrs="{'invisible': ['|', ('attribute_set_id', '=', False),
                                                       ('completion_state', '=', 'complete')]}"
-                />
+                /> -->
             </tree>
         </field>
     </record>
