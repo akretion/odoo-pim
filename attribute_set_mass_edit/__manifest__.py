@@ -7,7 +7,7 @@
     "license": "AGPL-3",
     "author": "ACSONE SA/NV",
     "website": "https://acsone.eu",
-    "depends": ["attribute_set", "mass_editing"],
+    "depends": ["attribute_set", "mass_editing", "onchange_helper"],
     "data": ["views/attribute_attribute.xml"],
     "demo": [],
 }
