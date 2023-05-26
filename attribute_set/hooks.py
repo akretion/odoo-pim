@@ -9,8 +9,12 @@ def post_load_hook():
         if attrs and field_data.get("serialization_field_id"):
             serialization_record_id = field_data["serialization_field_id"]
             try:
-                serialization_record = self.browse(serialization_record_id)
-                attrs["sparse"] = serialization_record.name
+                self.env.cr.execute(
+                    """SELECT name FROM ir_model_fields WHERE id = %s""",
+                    (serialization_record_id,),
+                )
+                name = self.env.cr.fetchall()
+                attrs["sparse"] = name[0][0]
             except AttributeError:
                 # due to https://github.com/OCA/odoo-pim/issues/134
                 # because depends_context isn't filled yet
